@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 GenSpark Advanced Tools Manager</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .dashboard {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .control-panel {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            height: fit-content;
+        }
+        
+        .control-panel h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        
+        .btn:hover {
+            background: #5a6fd8;
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+        }
+        
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+        
+        .results-panel {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            min-height: 600px;
+        }
+        
+        .results-panel h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .ai-recommendation {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .ai-recommendation h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .score-badges {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .score-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .recommendation-card {
+            border: 2px solid #e1e5e9;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .recommendation-card:hover {
+            border-color: #667eea;
+        }
+        
+        .tool-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+        
+        .tool-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin: 0;
+        }
+        
+        .tool-score {
+            background: #28a745;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .tool-description {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .tool-reasoning {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        
+        .tool-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .progress-bar {
+            background: #e9ecef;
+            border-radius: 10px;
+            height: 8px;
+            overflow: hidden;
+            margin-top: 5px;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transition: width 0.3s ease;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+        
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #667eea;
+            display: block;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 0.8rem;
+            margin-top: 5px;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .stack-optimization {
+            background: #e8f5e8;
+            border: 1px solid #28a745;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .stack-optimization h3 {
+            color: #155724;
+            margin-bottom: 15px;
+        }
+        
+        .stack-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background: white;
+            border-radius: 6px;
+            margin-bottom: 8px;
+        }
+        
+        .budget-remaining {
+            background: #d4edda;
+            color: #155724;
+            padding: 12px;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .control-panel, .results-panel {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 GenSpark Advanced Tools Manager</h1>
+            <p>AI-powered tool recommendations for startups | 2025 Edition</p>
+        </div>
+        
+        <div class="dashboard">
+            <div class="control-panel">
+                <h2>🎯 Configure Your Startup</h2>
+                
+                <div class="form-group">
+                    <label for="teamSize">Team Size</label>
+                    <input type="number" id="teamSize" min="1" max="1000" value="5">
+                </div>
+                
+                <div class="form-group">
+                    <label for="budget">Monthly Budget ($)</label>
+                    <input type="number" id="budget" min="0" max="100000" value="1000" step="100">
+                </div>
+                
+                <div class="form-group">
+                    <label for="technicalLevel">Technical Level</label>
+                    <select id="technicalLevel">
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate" selected>Intermediate</option>
+                        <option value="expert">Expert</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="startupStage">Startup Stage</label>
+                    <select id="startupStage">
+                        <option value="ideation">Ideation</option>
+                        <option value="growth" selected>Growth</option>
+                        <option value="scale">Scale</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="category">Category (Optional)</label>
+                    <select id="category">
+                        <option value="">All Categories</option>
+                        <option value="AI & Machine Learning">AI & ML</option>
+                        <option value="Development & Code">Development</option>
+                        <option value="Analytics & Data Intelligence">Analytics</option>
+                        <option value="Communication & Collaboration">Communication</option>
+                        <option value="Marketing & Growth">Marketing</option>
+                        <option value="Sales & CRM">Sales</option>
+                        <option value="Finance & Accounting">Finance</option>
+                    </select>
+                </div>
+                
+                <button class="btn" onclick="getAIRecommendations()">
+                    🤖 Get AI Recommendations
+                </button>
+                
+                <button class="btn btn-secondary" onclick="optimizeStack()">
+                    🔧 Optimize Stack
+                </button>
+                
+                <button class="btn btn-secondary" onclick="getAllTools()">
+                    📋 Browse All Tools
+                </button>
+            </div>
+            
+            <div class="results-panel">
+                <h2>📊 Results</h2>
+                <div id="resultsContent">
+                    <div class="no-results">
+                        <p>Configure your startup parameters and click "Get AI Recommendations" to see personalized tool suggestions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // API configuration
+        const API_BASE_URL = window.location.origin.replace(/:\d+/, ':8000'); // Assume API runs on port 8000
+        
+        // State management
+        let currentResults = [];
+        let userProfile = null;
+        
+        // Utility functions
+        function showLoading(containerId = 'resultsContent') {
+            document.getElementById(containerId).innerHTML = `
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>Getting recommendations...</p>
+                </div>
+            `;
+        }
+        
+        function showError(message, containerId = 'resultsContent') {
+            document.getElementById(containerId).innerHTML = `
+                <div class="no-results">
+                    <h3>❌ Error</h3>
+                    <p>${message}</p>
+                </div>
+            `;
+        }
+        
+        function formatCurrency(amount) {
+            return new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD'
+            }).format(amount);
+        }
+        
+        // API calls
+        async function getAIRecommendations() {
+            showLoading();
+            
+            const params = new URLSearchParams({
+                team_size: document.getElementById('teamSize').value,
+                budget: document.getElementById('budget').value,
+                technical_level: document.getElementById('technicalLevel').value,
+                startup_stage: document.getElementById('startupStage').value,
+                limit: 10
+            });
+            
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/recommend?${params}`);
+                const data = await response.json();
+                
+                if (data.success) {
+                    displayRecommendations(data.recommendations, data.user_profile);
+                } else {
+                    showError(data.error || 'Failed to get recommendations');
+                }
+            } catch (error) {
+                console.error('Error getting recommendations:', error);
+                showError('Failed to connect to recommendation service. Make sure the API server is running.');
+            }
+        }
+        
+        async function optimizeStack() {
+            showLoading();
+            
+            const category = document.getElementById('category').value || 'AI & Machine Learning';
+            const params = new URLSearchParams({
+                category: category,
+                budget: document.getElementById('budget').value,
+                team_size: document.getElementById('teamSize').value
+            });
+            
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/optimize-stack?${params}`);
+                const data = await response.json();
+                
+                if (data.success) {
+                    displayStackOptimization(data.data);
+                } else {
+                    showError(data.error || 'Failed to optimize stack');
+                }
+            } catch (error) {
+                console.error('Error optimizing stack:', error);
+                showError('Failed to connect to optimization service.');
+            }
+        }
+        
+        async function getAllTools() {
+            showLoading();
+            
+            const params = new URLSearchParams();
+            const category = document.getElementById('category').value;
+            const budget = document.getElementById('budget').value;
+            
+            if (category) params.append('category', category);
+            if (budget && budget < 100) params.append('budget', 'free');
+            
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/tools?${params}`);
+                const data = await response.json();
+                
+                if (data.success) {
+                    displayAllTools(data.tools);
+                } else {
+                    showError(data.error || 'Failed to get tools');
+                }
+            } catch (error) {
+                console.error('Error getting tools:', error);
+                showError('Failed to connect to tools service.');
+            }
+        }
+        
+        // Display functions
+        function displayRecommendations(recommendations, userProfile) {
+            currentResults = recommendations;
+            userProfile = userProfile;
+            
+            let html = `
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number">${recommendations.length}</span>
+                        <div class="stat-label">Recommendations</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">${userProfile.team_size}</span>
+                        <div class="stat-label">Team Size</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">${formatCurrency(userProfile.budget)}</span>
+                        <div class="stat-label">Budget</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">${userProfile.startup_stage}</span>
+                        <div class="stat-label">Stage</div>
+                    </div>
+                </div>
+            `;
+            
+            recommendations.forEach((rec, index) => {
+                const score = (rec.score * 100).toFixed(0);
+                const costEffectiveness = (rec.cost_effectiveness * 100).toFixed(0);
+                const teamFitScore = (rec.team_fit_score * 100).toFixed(0);
+                
+                html += `
+                    <div class="recommendation-card">
+                        <div class="tool-header">
+                            <h3 class="tool-name">${rec.tool.name}</h3>
+                            <div class="tool-score">${score}% Match</div>
+                        </div>
+                        <p class="tool-description">${rec.tool.description}</p>
+                        <div class="tool-reasoning">
+                            <strong>💡 AI Reasoning:</strong> ${rec.reasoning}
+                        </div>
+                        <div class="tool-meta">
+                            <div class="meta-item">
+                                <span>💰</span>
+                                <span>${rec.tool.pricing}</span>
+                            </div>
+                            <div class="meta-item">
+                                <span>🔗</span>
+                                <span>${rec.tool.genSparkIntegration}</span>
+                            </div>
+                            <div class="meta-item">
+                                <span>📊</span>
+                                <span>Integration: ${rec.integration_complexity}/10</span>
+                            </div>
+                        </div>
+                        <div style="margin-top: 15px;">
+                            <div style="margin-bottom: 10px;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                                    <small>Cost Effectiveness</small>
+                                    <small>${costEffectiveness}%</small>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: ${costEffectiveness}%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                                    <small>Team Fit</small>
+                                    <small>${teamFitScore}%</small>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: ${teamFitScore}%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 15px;">
+                            <a href="${rec.tool.url}" target="_blank" class="tool-link">
+                                Visit Website →
+                            </a>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            document.getElementById('resultsContent').innerHTML = html;
+        }
+        
+        function displayStackOptimization(data) {
+            let html = `
+                <div class="stack-optimization">
+                    <h3>🔧 Optimized Stack for ${data.category}</h3>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <span class="stat-number">${formatCurrency(data.total_budget)}</span>
+                            <div class="stat-label">Total Budget</div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">${data.team_size}</span>
+                            <div class="stat-label">Team Size</div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">${data.tools_considered}</span>
+                            <div class="stat-label">Tools Considered</div>
+                        </div>
+                    </div>
+            `;
+            
+            // Essential tools
+            if (data.recommendations.essential.length > 0) {
+                html += '<h4 style="color: #155724; margin: 20px 0 10px 0;">✅ Essential Tools</h4>';
+                data.recommendations.essential.forEach(tool => {
+                    const cost = (tool.cost_per_user || 0) * data.team_size;
+                    html += `
+                        <div class="stack-item">
+                            <span><strong>${tool.name}</strong></span>
+                            <span>${formatCurrency(cost)}/month</span>
+                        </div>
+                    `;
+                });
+            }
+            
+            // Recommended tools
+            if (data.recommendations.recommended.length > 0) {
+                html += '<h4 style="color: #155724; margin: 20px 0 10px 0;">⭐ Recommended Tools</h4>';
+                data.recommendations.recommended.forEach(tool => {
+                    const cost = (tool.cost_per_user || 0) * data.team_size;
+                    html += `
+                        <div class="stack-item">
+                            <span><strong>${tool.name}</strong></span>
+                            <span>${formatCurrency(cost)}/month</span>
+                        </div>
+                    `;
+                });
+            }
+            
+            // Optional tools
+            if (data.recommendations.optional.length > 0) {
+                html += '<h4 style="color: #155724; margin: 20px 0 10px 0;">🔄 Optional Tools</h4>';
+                data.recommendations.optional.forEach(tool => {
+                    const cost = (tool.cost_per_user || 0) * data.team_size;
+                    html += `
+                        <div class="stack-item">
+                            <span><strong>${tool.name}</strong></span>
+                            <span>${formatCurrency(cost)}/month</span>
+                        </div>
+                    `;
+                });
+            }
+            
+            html += `
+                <div class="budget-remaining">
+                    Remaining Budget: ${formatCurrency(data.remaining_budget)}
+                </div>
+                </div>
+            `;
+            
+            document.getElementById('resultsContent').innerHTML = html;
+        }
+        
+        function displayAllTools(tools) {
+            let html = `
+                <div style="margin-bottom: 20px;">
+                    <strong>Found ${tools.length} tools</strong>
+                </div>
+            `;
+            
+            tools.forEach(tool => {
+                html += `
+                    <div class="recommendation-card">
+                        <div class="tool-header">
+                            <h3 class="tool-name">${tool.name}</h3>
+                            <div class="tool-score" style="background: #6c757d;">${tool.pricing}</div>
+                        </div>
+                        <p class="tool-description">${tool.description}</p>
+                        <div class="tool-meta">
+                            <div class="meta-item">
+                                <span>🔗</span>
+                                <span>${tool.genSparkIntegration}</span>
+                            </div>
+                            <div class="meta-item">
+                                <span>📊</span>
+                                <span>${tool.difficulty}</span>
+                            </div>
+                        </div>
+                        <div style="margin-top: 15px;">
+                            <a href="${tool.url}" target="_blank" class="tool-link">
+                                Visit Website →
+                            </a>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            document.getElementById('resultsContent').innerHTML = html;
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Auto-load recommendations on page load
+            setTimeout(getAIRecommendations, 1000);
+        });
+    </script>
+</body>
+</html>
