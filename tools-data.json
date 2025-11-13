@@ -1,0 +1,202 @@
+{
+  "name": "Awesome Startup Tools for GenSpark",
+  "description": "A curated, modern collection of essential tools and resources for GenSpark startups and entrepreneurs in 2025",
+  "version": "1.0.0",
+  "lastUpdated": "2025-11-13",
+  "categories": [
+    {
+      "name": "AI & Machine Learning",
+      "subcategories": [
+        {
+          "name": "AI Development Platforms",
+          "tools": [
+            {
+              "name": "GenSpark AI Platform",
+              "url": "https://genspark.ai",
+              "description": "Your primary AI development platform",
+              "pricing": "Freemium",
+              "genSparkIntegration": "Native",
+              "difficulty": "Beginner",
+              "startupFriendly": true
+            },
+            {
+              "name": "OpenAI API",
+              "url": "https://openai.com/api",
+              "description": "GPT models for natural language processing",
+              "pricing": "Pay-as-you-go",
+              "genSparkIntegration": "API",
+              "difficulty": "Intermediate",
+              "startupFriendly": true
+            },
+            {
+              "name": "Anthropic Claude",
+              "url": "https://anthropic.com/claude",
+              "description": "Advanced AI assistant for complex reasoning",
+              "pricing": "Pay-as-you-go",
+              "genSparkIntegration": "API",
+              "difficulty": "Intermediate",
+              "startupFriendly": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Development & Code",
+      "subcategories": [
+        {
+          "name": "Code Editors & IDEs",
+          "tools": [
+            {
+              "name": "Cursor",
+              "url": "https://cursor.sh",
+              "description": "AI-first code editor (highly recommended for GenSpark)",
+              "pricing": "Freemium",
+              "genSparkIntegration": "Optimized",
+              "difficulty": "Beginner",
+              "startupFriendly": true
+            },
+            {
+              "name": "VS Code",
+              "url": "https://code.visualstudio.com",
+              "description": "Microsoft's popular code editor",
+              "pricing": "Free",
+              "genSparkIntegration": "Extensions",
+              "difficulty": "Beginner",
+              "startupFriendly": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Analytics & Data Intelligence",
+      "subcategories": [
+        {
+          "name": "Web & Product Analytics",
+          "tools": [
+            {
+              "name": "PostHog",
+              "url": "https://posthog.com",
+              "description": "Open-source product analytics",
+              "pricing": "Freemium",
+              "genSparkIntegration": "API",
+              "difficulty": "Intermediate",
+              "startupFriendly": true
+            },
+            {
+              "name": "Plausible",
+              "url": "https://plausible.io",
+              "description": "Privacy-friendly analytics",
+              "pricing": "Freemium",
+              "genSparkIntegration": "Easy",
+              "difficulty": "Beginner",
+              "startupFriendly": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "startupStages": [
+    {
+      "stage": "Ideation",
+      "focus": "Validation, MVP, initial traction",
+      "recommendedTools": [
+        "GenSpark AI Platform",
+        "Cursor",
+        "Figma",
+        "Canva",
+        "PostHog",
+        "Plausible",
+        "Slack",
+        "Loom",
+        "Stripe"
+      ]
+    },
+    {
+      "stage": "Growth",
+      "focus": "Scaling, optimization, team building",
+      "recommendedTools": [
+        "HubSpot CRM",
+        "Attio",
+        "Customer.io",
+        "Buffer",
+        "Mixpanel",
+        "Amplitude",
+        "Linear",
+        "Notion",
+        "QuickBooks",
+        "Brex"
+      ]
+    },
+    {
+      "stage": "Scale",
+      "focus": "Market expansion, enterprise, optimization",
+      "recommendedTools": [
+        "Apollo",
+        "Outreach",
+        "SEMrush",
+        "Ahrefs",
+        "Finmark",
+        "Causal",
+        "Vanta",
+        "Secureframe",
+        "AWS",
+        "Google Cloud"
+      ]
+    }
+  ],
+  "gettingStartedChecklist": {
+    "week1": {
+      "name": "Foundation",
+      "tasks": [
+        "Set up GenSpark AI Platform account",
+        "Choose code editor (Cursor recommended)",
+        "Set up version control (GitHub)",
+        "Create Figma account for design",
+        "Set up basic analytics (PostHog)"
+      ]
+    },
+    "week2": {
+      "name": "Development",
+      "tasks": [
+        "Choose cloud platform (Vercel recommended)",
+        "Set up database (Supabase recommended)",
+        "Configure payment processing (Stripe)",
+        "Set up team communication (Slack)",
+        "Create documentation (Notion)"
+      ]
+    },
+    "week3": {
+      "name": "Launch Prep",
+      "tasks": [
+        "Set up email marketing (Customer.io)",
+        "Configure social media accounts",
+        "Set up customer support (Front)",
+        "Create landing page (Webflow)",
+        "Set up financial tracking (QuickBooks)"
+      ]
+    },
+    "week4": {
+      "name": "Growth",
+      "tasks": [
+        "Implement SEO tools (Ahrefs)",
+        "Set up CRM system (HubSpot)",
+        "Configure advanced analytics (Mixpanel)",
+        "Set up automation (Zapier)",
+        "Monitor compliance needs (Vanta)"
+      ]
+    }
+  },
+  "metadata": {
+    "totalTools": 150,
+    "categories": 15,
+    "startupProgramsAvailable": true,
+    "lastReview": "2025-11-13",
+    "nextReview": "2025-12-13",
+    "maintainer": "GenSpark Community",
+    "license": "MIT",
+    "repository": "https://github.com/genspark/awesome-startup-tools"
+  }
+}

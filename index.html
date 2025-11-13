@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awesome Startup Tools for GenSpark</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .filters {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .filter-group label {
+            font-weight: 600;
+            color: #555;
+            font-size: 0.9rem;
+        }
+        
+        select, input {
+            padding: 10px;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+        
+        select:focus, input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .tool-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .tool-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+        
+        .tool-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .tool-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin: 0;
+        }
+        
+        .tool-badge {
+            background: #e8f5e8;
+            color: #27ae60;
+            padding: 4px 8px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .tool-badge.startup-friendly {
+            background: #e8f5e8;
+            color: #27ae60;
+        }
+        
+        .tool-badge.free {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+        
+        .tool-badge.freemium {
+            background: #fff3e0;
+            color: #f57c00;
+        }
+        
+        .tool-description {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        
+        .tool-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .meta-icon {
+            width: 16px;
+            height: 16px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .tool-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+        
+        .tool-link:hover {
+            background: #5a6fd8;
+        }
+        
+        .stats {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+        
+        .stat-item {
+            padding: 15px;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #667eea;
+            display: block;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: white;
+        }
+        
+        .spinner {
+            border: 4px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top: 4px solid white;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .filters {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Awesome Startup Tools</h1>
+            <p>Curated tools for GenSpark entrepreneurs | 2025 Edition</p>
+        </div>
+        
+        <div class="filters">
+            <div class="filter-group">
+                <label for="category">Category</label>
+                <select id="category">
+                    <option value="">All Categories</option>
+                    <option value="AI & Machine Learning">AI & ML</option>
+                    <option value="Development & Code">Development</option>
+                    <option value="Analytics & Data Intelligence">Analytics</option>
+                    <option value="Communication & Collaboration">Communication</option>
+                    <option value="Design & Creative">Design</option>
+                    <option value="Marketing & Growth">Marketing</option>
+                    <option value="Sales & CRM">Sales</option>
+                    <option value="Finance & Accounting">Finance</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="stage">Startup Stage</label>
+                <select id="stage">
+                    <option value="">All Stages</option>
+                    <option value="ideation">Ideation</option>
+                    <option value="growth">Growth</option>
+                    <option value="scale">Scale</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="budget">Budget</label>
+                <select id="budget">
+                    <option value="">Any Budget</option>
+                    <option value="free">Free</option>
+                    <option value="freemium">Freemium</option>
+                    <option value="paid">Paid</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="difficulty">Integration</label>
+                <select id="difficulty">
+                    <option value="">Any Difficulty</option>
+                    <option value="easy">Easy</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="search">Search</label>
+                <input type="text" id="search" placeholder="Search tools...">
+            </div>
+        </div>
+        
+        <div class="stats">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number" id="totalTools">0</span>
+                    <div class="stat-label">Total Tools</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="visibleTools">0</span>
+                    <div class="stat-label">Visible</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="freeTools">0</span>
+                    <div class="stat-label">Free Tools</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="startupFriendly">0</span>
+                    <div class="stat-label">Startup Friendly</div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="toolsContainer">
+            <div class="loading">
+                <div class="spinner"></div>
+                <p>Loading awesome tools...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample data - in a real implementation, this would load from tools-data.json
+        const toolsData = {
+            "categories": [
+                {
+                    "name": "AI & Machine Learning",
+                    "subcategories": [
+                        {
+                            "name": "AI Development Platforms",
+                            "tools": [
+                                {
+                                    "name": "GenSpark AI Platform",
+                                    "url": "https://genspark.ai",
+                                    "description": "Your primary AI development platform with advanced capabilities",
+                                    "pricing": "Freemium",
+                                    "genSparkIntegration": "Native",
+                                    "difficulty": "Easy",
+                                    "startupFriendly": true,
+                                    "category": "AI & Machine Learning"
+                                },
+                                {
+                                    "name": "OpenAI API",
+                                    "url": "https://openai.com/api",
+                                    "description": "GPT models for natural language processing and AI applications",
+                                    "pricing": "Pay-as-you-go",
+                                    "genSparkIntegration": "API",
+                                    "difficulty": "Intermediate",
+                                    "startupFriendly": true,
+                                    "category": "AI & Machine Learning"
+                                },
+                                {
+                                    "name": "Anthropic Claude",
+                                    "url": "https://anthropic.com/claude",
+                                    "description": "Advanced AI assistant for complex reasoning tasks",
+                                    "pricing": "Pay-as-you-go",
+                                    "genSparkIntegration": "API",
+                                    "difficulty": "Intermediate",
+                                    "startupFriendly": true,
+                                    "category": "AI & Machine Learning"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Development & Code",
+                    "subcategories": [
+                        {
+                            "name": "Code Editors & IDEs",
+                            "tools": [
+                                {
+                                    "name": "Cursor",
+                                    "url": "https://cursor.sh",
+                                    "description": "AI-first code editor optimized for GenSpark development",
+                                    "pricing": "Freemium",
+                                    "genSparkIntegration": "Optimized",
+                                    "difficulty": "Easy",
+                                    "startupFriendly": true,
+                                    "category": "Development & Code"
+                                },
+                                {
+                                    "name": "VS Code",
+                                    "url": "https://code.visualstudio.com",
+                                    "description": "Microsoft's popular and extensible code editor",
+                                    "pricing": "Free",
+                                    "genSparkIntegration": "Extensions",
+                                    "difficulty": "Easy",
+                                    "startupFriendly": true,
+                                    "category": "Development & Code"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Analytics & Data Intelligence",
+                    "subcategories": [
+                        {
+                            "name": "Web & Product Analytics",
+                            "tools": [
+                                {
+                                    "name": "PostHog",
+                                    "url": "https://posthog.com",
+                                    "description": "Open-source product analytics with powerful features",
+                                    "pricing": "Freemium",
+                                    "genSparkIntegration": "API",
+                                    "difficulty": "Intermediate",
+                                    "startupFriendly": true,
+                                    "category": "Analytics & Data Intelligence"
+                                },
+                                {
+                                    "name": "Plausible",
+                                    "url": "https://plausible.io",
+                                    "description": "Privacy-friendly analytics without cookies",
+                                    "pricing": "Freemium",
+                                    "genSparkIntegration": "Easy",
+                                    "difficulty": "Easy",
+                                    "startupFriendly": true,
+                                    "category": "Analytics & Data Intelligence"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        };
+
+        // DOM elements
+        const categoryFilter = document.getElementById('category');
+        const stageFilter = document.getElementById('stage');
+        const budgetFilter = document.getElementById('budget');
+        const difficultyFilter = document.getElementById('difficulty');
+        const searchInput = document.getElementById('search');
+        const toolsContainer = document.getElementById('toolsContainer');
+        
+        // Statistics elements
+        const totalToolsEl = document.getElementById('totalTools');
+        const visibleToolsEl = document.getElementById('visibleTools');
+        const freeToolsEl = document.getElementById('freeTools');
+        const startupFriendlyEl = document.getElementById('startupFriendly');
+        
+        // State
+        let allTools = [];
+        let filteredTools = []
+        
+        // Initialize
+        function init() {
+            // Flatten all tools from categories
+            allTools = [];
+            toolsData.categories.forEach(category => {
+                category.subcategories.forEach(subcategory => {
+                    subcategory.tools.forEach(tool => {
+                        allTools.push(tool);
+                    });
+                });
+            });
+            
+            // Update statistics
+            updateStatistics();
+            
+            // Initial render
+            renderTools(allTools);
+            
+            // Add event listeners
+            categoryFilter.addEventListener('change', applyFilters);
+            stageFilter.addEventListener('change', applyFilters);
+            budgetFilter.addEventListener('change', applyFilters);
+            difficultyFilter.addEventListener('change', applyFilters);
+            searchInput.addEventListener('input', debounce(applyFilters, 300));
+        }
+        
+        function updateStatistics() {
+            const total = allTools.length;
+            const visible = filteredTools.length;
+            const free = allTools.filter(tool => tool.pricing.toLowerCase() === 'free').length;
+            const startupFriendly = allTools.filter(tool => tool.startupFriendly).length;
+            
+            totalToolsEl.textContent = total;
+            visibleToolsEl.textContent = visible;
+            freeToolsEl.textContent = free;
+            startupFriendlyEl.textContent = startupFriendly;
+        }
+        
+        function applyFilters() {
+            const category = categoryFilter.value;
+            const stage = stageFilter.value;
+            const budget = budgetFilter.value;
+            const difficulty = difficultyFilter.value;
+            const search = searchInput.value.toLowerCase();
+            
+            filteredTools = allTools.filter(tool => {
+                // Category filter
+                if (category && tool.category !== category) return false;
+                
+                // Budget filter
+                if (budget) {
+                    const pricing = tool.pricing.toLowerCase();
+                    if (budget === 'free' && pricing !== 'free') return false;
+                    if (budget === 'freemium' && !pricing.includes('freemium')) return false;
+                    if (budget === 'paid' && (pricing === 'free' || pricing.includes('freemium'))) return false;
+                }
+                
+                // Difficulty filter
+                if (difficulty && tool.difficulty.toLowerCase() !== difficulty) return false;
+                
+                // Search filter
+                if (search && !tool.name.toLowerCase().includes(search) && 
+                    !tool.description.toLowerCase().includes(search)) return false;
+                
+                return true;
+            });
+            
+            updateStatistics();
+            renderTools(filteredTools);
+        }
+        
+        function renderTools(tools) {
+            if (tools.length === 0) {
+                toolsContainer.innerHTML = `
+                    <div class="no-results">
+                        <h3>🔍 No tools found</h3>
+                        <p>Try adjusting your filters or search terms</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            const toolsGrid = document.createElement('div');
+            toolsGrid.className = 'tools-grid';
+            
+            tools.forEach(tool => {
+                const toolCard = document.createElement('div');
+                toolCard.className = 'tool-card';
+                
+                // Determine badge class based on pricing
+                let badgeClass = '';
+                let badgeText = tool.pricing;
+                
+                if (tool.pricing.toLowerCase() === 'free') {
+                    badgeClass = 'free';
+                } else if (tool.pricing.toLowerCase().includes('freemium')) {
+                    badgeClass = 'freemium';
+                }
+                
+                if (tool.startupFriendly) {
+                    badgeClass = 'startup-friendly';
+                    badgeText = 'Startup Friendly';
+                }
+                
+                toolCard.innerHTML = `
+                    <div class="tool-header">
+                        <h3 class="tool-name">${tool.name}</h3>
+                        <span class="tool-badge ${badgeClass}">${badgeText}</span>
+                    </div>
+                    <p class="tool-description">${tool.description}</p>
+                    <div class="tool-meta">
+                        <div class="meta-item">
+                            <span class="meta-icon">💰</span>
+                            <span>${tool.pricing}</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-icon">🔗</span>
+                            <span>GenSpark: ${tool.genSparkIntegration}</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-icon">📊</span>
+                            <span>Difficulty: ${tool.difficulty}</span>
+                        </div>
+                    </div>
+                    <a href="${tool.url}" target="_blank" class="tool-link">
+                        Visit Website →
+                    </a>
+                `;
+                
+                toolsGrid.appendChild(toolCard);
+            });
+            
+            toolsContainer.innerHTML = '';
+            toolsContainer.appendChild(toolsGrid);
+        }
+        
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+        
+        // Initialize the app
+        init();
+    </script>
+</body>
+</html>
