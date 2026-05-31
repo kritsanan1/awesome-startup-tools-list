@@ -385,6 +385,7 @@ Good for team projects
 - Stamp creator - http://www.speedystamps.co.uk/
 - Method Draw (SVG Editor) - http://editor.method.ac
 - AConvert (Image to SVG Converter) - https://www.aconvert.com/image/png-to-svg/
+- FreePNGConvert (WebP to PNG converter, browser-based, privacy-first) - https://freepngconvert.com
 - Image Compression and Optimization API - https://www.abstractapi.com/image-processing-optimization-api
 - Figma - https://www.figma.com/
 
