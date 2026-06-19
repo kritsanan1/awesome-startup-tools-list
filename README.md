@@ -250,6 +250,7 @@ This is a curated list about tools for everything from productivity to hosting t
 - Website Headlines - https://websiteheadlines.com/
 - Vidclue - https://vidclue.com/
 - AnswerThePublic - https://answerthepublic.com/
+- NotFair (open source, ~2.9k stars) - https://github.com/nowork-studio/NotFair — Claude Code skills for SEO, Google Ads, and Meta Ads; connects to live data via Google Ads MCP, Meta Ads MCP, Google Search Console MCP, and Google Analytics (GA4) MCP
 
 ### Web Experimentation:
 - VWO - https://vwo.com
