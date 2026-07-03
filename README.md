@@ -159,6 +159,7 @@ This is a curated list about tools for everything from productivity to hosting t
 
 ### Idea Validation
 - AreYouInterested - https://areyouinterested.co/
+- GetAppNiche App Revenue Checker - https://getappniche.com/tools/app-revenue-checker
 - SurveyWave - http://surveywave.xyz/
 
 ### Content Management Systems (CMS):
