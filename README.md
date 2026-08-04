@@ -398,3 +398,5 @@ Good for team projects
 
 ### Virtual Private Networks (VPN)
 - Proton VPN - https://protonvpn.com
+- [FreePNGConvert](https://freepngconvert.com) - Free browser-based WebP to PNG converter. No upload required — all image processing happens client-side for privacy and speed.
+
