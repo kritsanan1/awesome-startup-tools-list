@@ -160,6 +160,7 @@ This is a curated list about tools for everything from productivity to hosting t
 ### Idea Validation
 - AreYouInterested - https://areyouinterested.co/
 - SurveyWave - http://surveywave.xyz/
+- IdeaHunter - https://ideahunter.today/
 
 ### Content Management Systems (CMS):
 - WordPress - https://www.wordpress.org
