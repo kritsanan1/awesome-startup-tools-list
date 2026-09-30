@@ -92,6 +92,7 @@ This is a curated list about tools for everything from productivity to hosting t
 - VSCode for Web - https://vscode.dev
 - CodeAnywhere - https://codeanywhere.com
 - Cloud9 - https://c9.io
+- claude code(free tier) - https://claude.com/product/claude-code
 - Koding - https://koding.com
 - Humanitec - https://humanitec.com
 - Bolt.new (AI baseed) - https://bolt.new
