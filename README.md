@@ -18,6 +18,7 @@ This is a curated list about tools for everything from productivity to hosting t
 - Manus - https://manus.im
 - Lumo - https://lumo.proton.me
 
+- MeetNewAI - https://meetnewai.com  (free bilingual AI tools / games / MCP directory)
 ### Git Repos
 - GitHub - https://github.com
 - BitBucket - https://bitbucket.com
