@@ -182,6 +182,7 @@ This is a curated list about tools for everything from productivity to hosting t
 - Amplitude - https://amplitude.com/
 - Microsoft Clarity - https://clarity.microsoft.com
 - PostHog - https://posthog.com/
+- Vaneform - https://vaneform.com
 
 ### Accounting & Finance
 - Wave Apps - https://www.waveapps.com
