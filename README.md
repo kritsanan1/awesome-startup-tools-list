@@ -233,6 +233,7 @@ This is a curated list about tools for everything from productivity to hosting t
 - Visual Website Optimizer - https://visualwebsiteoptimizer.com/
 - Tweriod - http://www.tweriod.com/
 - My Site Auditor - http://mysiteauditor.com
+- Datacircle - https://datacircle.dev (free benchmarks of GTM APIs, downloadable as CSV)
 - Free traffic increase - http://www.10khits.com/
 - WooBox - http://woobox.com/
 - Add Shoppers - http://addshoppers.com
